@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f4f4f9;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 40px);
+  grid-template-rows: repeat(9, 40px);
+  gap: 0;
+  border: 2px solid black;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: bold;
+  color: black;
+  background: white;
+}
+
+/* Draw thicker vertical borders after every 3rd column */
+.cell {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.cell:nth-child(3n) {
+  border-right: 2px solid black;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54),
+.cell:nth-child(n+73):nth-child(-n+81) {
+  border-bottom: 2px solid black;
+}
+
+/* Also draw left and top borders on outer edges */
+.cell:nth-child(9n+1) {
+  border-left: 2px solid black;
+}
+
+.cell:nth-child(-n+9) {
+  border-top: 2px solid black;
+}
+
+/* Solver-filled numbers */
+.generated {
+  font-weight: normal;
+  color: #1e88e5;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+}
+
+button:hover {
+  background: #0056b3;
+}
